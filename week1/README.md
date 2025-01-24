@@ -1,4 +1,6 @@
-Anaconda
+# This is the solution for the first week
+
+## I have used **Anaconda**
 conda create -n DataTalk_Couse python=3.12
 conda activate DataTalk_Couse
 conda install jupyter
