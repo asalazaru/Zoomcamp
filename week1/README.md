@@ -36,7 +36,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Answer: **24.3.1** 
 
 ### Question 2:
-postgres:5432
+Answer: **postgres:5432**
 
 ### Question 3:
 Command:
@@ -74,8 +74,8 @@ FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >10 ;
 ```
-**35189**
-
+**35189** \
+Answer: **104800, 198924, 109603, 27678, 35189**
 
 ### QUESTION 4
 Command:
