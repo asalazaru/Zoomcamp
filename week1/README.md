@@ -1,14 +1,19 @@
 # This is the solution for the first week
 
 ## I have used **Anaconda**
+The commands I used for install anaconda are:
+```
 conda create -n DataTalk_Couse python=3.12
 conda activate DataTalk_Couse
 conda install jupyter
 conda install sqlalchemy
 conda install psycopg2
+```
 
-
-Question 1
+## Question and answers
+### Question 1
+Command:
+```
 (base) alvaro@cenac23:~/Documents/Docker/DataTalk$ docker run -it python:3.12.8
 Unable to find image 'python:3.12.8' locally
 3.12.8: Pulling from library/python
@@ -27,55 +32,65 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> pip.__version__
 '24.3.1'
 >>> 
+```
+Answer: **24.3.1** 
 
-
-Question 2:
+### Question 2:
 postgres:5432
 
-Question 3:
-
+### Question 3:
+Command:
+```
 SELECT count(*)
 FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >=0 AND a.trip_distance <=1 ;
-104800
-
+```
+**104800**
+```
 SELECT count(*)
 FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >1 AND a.trip_distance <=3 ;
-198924
-
+```
+**198924**
+```
 SELECT count(*)
 FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >3 AND a.trip_distance <=7 ;
-109603
-
+```
+**109603**
+```
 SELECT count(*)
 FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >7 AND a.trip_distance <=10 ;
-
-27678
-
+```
+**27678**
+```
 SELECT count(*)
 FROM green_taxi_data a
 WHERE a.lpep_dropoff_datetime BETWEEN timestamp '2019-10-01 00:00:00' AND timestamp '2019-10-31 23:59:59'
 AND a.trip_distance >10 ;
+```
+**35189**
 
-35189
 
-
-QUESTION 4
+### QUESTION 4
+Command:
+```
 SELECT DATE_TRUNC('day', lpep_pickup_datetime) AS day, MAX(trip_distance)
 FROM green_taxi_data
 GROUP BY day
 ORDER BY 2 DESC;
+```
 
-2019-10-31
+Answer: **2019-10-31**
 
-QUESTION 5
+### QUESTION 5
+Command:
+```
 SELECT tz.service_zone, tz."Zone"
 FROM
   taxi_zone tz
@@ -101,9 +116,12 @@ WHERE tz."LocationID" IN (
     "Zone": "Morningside Heights"
   }
 ]
+```
+Answer: **East Harlem North, East Harlem South, Morningside Heights**
 
-QUESTION 6
-
+### QUESTION 6
+Command:
+```
 SELECT MAX(AA.TIP),TZ."LocationID",tz.service_zone, tz."Zone"
 FROM
   taxi_zone tz , (SELECT g."DOLocationID", max(g.tip_amount) TIP
@@ -126,12 +144,14 @@ order by 1 desc;
     "Zone": "JFK Airport"
   }
 ]
+```
+Answer: **JFK Airport**
 
-QUESTION 7
-
+### QUESTION 7
+```
 terraform init
 terraform plan
 terraform apply
 terraform destroy
-
+```
 
